@@ -1,7 +1,10 @@
 # Seam Carving
-Seam carving is an algorithm for content-aware image resizing.  
-Photos can represented as a grid of pixels. Paths (top to bottom or left to right) of the grid that represent pixels which hold the least significance to the meaning of the photo are called seams.  
-The algorithm reduces the dimensions of the input image by removing one seam at a time until the desired dimensions are reached.  
+Seam carving is an algorithm for content-aware image resizing.
+
+Photos can represented as a grid of pixels. Paths (top to bottom or left to right) of the grid that represent pixels which hold the least significance to the meaning of the photo are called seams.
+
+The algorithm reduces the dimensions of the input image by removing one seam at a time until the desired dimensions are reached.
+
 Although this implementation reduces the size of the photo, seam carving can also be used to increase the size of a photo.
 
 ## Running the script
