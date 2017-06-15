@@ -10,6 +10,7 @@ class SeamCarve:
     def __init__(self, source, width, height):
         self.source = source
         self.colorImage = source.copy()
+        self.seamImage = source.copy()
         self.outX = width
         self.outY = height
         self.verticalSeamsLeft = source.shape[1] - width
@@ -82,6 +83,7 @@ class SeamCarve:
                 else:
                     x = x + np.argmin(s[y-1,x-1:x+2]) - 1
             result[y,:] = np.append(self.colorImage[y,:x], self.colorImage[y,x+1:], axis=0)
+            self.seamImage[y,x] = [0, 0, 255]
         self.verticalSeamsLeft -= 1
         return result
 
@@ -123,8 +125,12 @@ class SeamCarve:
                 else:
                     y = y + np.argmin(s[y-1:y+2,x-1]) - 1
             result[:,x] = np.append(self.colorImage[:y,x], self.colorImage[y+1:,x], axis=0)
+            self.seamImage[y,x] = [0, 0, 255]
         self.horizontalSeamsLeft -= 1
         return result
+
+    def getSeamImage(self):
+        return self.seamImage
 
 def main(args):
     source = readSource(args.s)
@@ -145,7 +151,14 @@ def main(args):
     result = seamCarve.run()
 
     debug(result)
+    debug(seamCarve.getSeamImage())
     writeImage(args.o, result)
+
+    splitString = args.o.split('.')
+    seamOutputPath = str(splitString[0]) + '_seams.'
+    for i in range(1, len(splitString)):
+        seamOutputPath += str(splitString[i])
+    writeImage(seamOutputPath, seamCarve.getSeamImage())
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
