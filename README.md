@@ -20,8 +20,9 @@ The algorithm reduces the dimensions of the input image by removing one seam at 
 ###### Test 2 source with x = 600, y = 606
 ![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test2/source.jpg "Test 2 source")
 
-###### Test 2 result with x = 500, y = 606
-![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test2/out.png "Test 2 result")
-
 ###### Test 2 seams cut
 ![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test2/out_seams.png "Test 2 seams")
+
+
+###### Test 2 result with x = 500, y = 606
+![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test2/out.png "Test 2 result")
