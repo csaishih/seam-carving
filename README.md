@@ -14,14 +14,11 @@ The algorithm reduces the dimensions of the input image by removing one seam at 
 `python run.py -s [path to source image] -o [path to output image] -x [desired width] -y [desired height]`
 
 ###### Example usage
-`python run.py -s test_images/test5/source.jpg -o test_images/test5/out.png -x 580 -y 414`
+`python run.py -s test_images/test2/source.jpg -o test_images/test2/out.png -x 500 -y 606`
 
 ## Results
-###### Test 5 source with x = 600, y = 414
-![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test5/source.jpg "Test 5 source")
+###### Test 5 source with x = 600, y = 606
+![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test2/source.jpg "Test 2 source")
 
-###### Test 5 result with x = 580, y = 414
-![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test5/out.png "Test 5 result")
-
-###### Test 5 result with x = 480, y = 414
-![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test5/out2.png "Test 5 result")
+###### Test 5 result with x = 500, y = 606
+![alt text](https://github.com/g3aishih/seam-carving/blob/master/test_images/test2/out.png "Test 2 result")
