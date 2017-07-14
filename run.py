@@ -140,14 +140,26 @@ def main(args):
         print("Could not read source image")
         return
 
+    if args.y:
+        height = args.y
+    else:
+        height = source.shape[0]
+
+    if args.x:
+        width = args.x
+    else:
+        width = source.shape[1]
+
     try:
-        assert args.x > 0 and args.x <= source.shape[1]
-        assert args.y > 0 and args.y <= source.shape[0]
+        assert width > 0 and width <= source.shape[1]
+        assert height > 0 and height <= source.shape[0]
     except:
         print("Invalid target dimensions\nDimensions must be positive and smaller than or equal to the image's original dimensions")
         return
 
-    seamCarve = SeamCarve(source, args.x, args.y)
+
+
+    seamCarve = SeamCarve(source, width, height)
     result = seamCarve.run()
 
     debug(result)
@@ -174,12 +186,12 @@ if __name__ == '__main__':
                         type=int,
                         default=0,
                         help='Desired width of output',
-                        required=True)
+                        required=False)
     parser.add_argument('-y',
                         type=int,
                         default=0,
                         help='Desired height of output',
-                        required=True)
+                        required=False)
     args = parser.parse_args()
 
     t1 = t2 = 0
